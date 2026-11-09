@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fortnite Tracker</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Orbitron:wght@500;700&family=Creepster&family=Mountains+of+Christmas:wght@700&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+:root,:root[data-theme="fortnite"]{--bg:#1a1050;--card:#241567;--text:#fff;--muted:#bcc8ff;--accent:#ffe14d;--accent2:#ff9f1c;--line:#4a3bb8;--good:#7dff6b;--on:#1b1050;--font:"Lilita One","Burbank Big Condensed",Impact,system-ui,sans-serif;--glow:none;--rad:8px}
+:root[data-theme="futur"]{--bg:#05060f;--card:#0b1024;--text:#e6f7ff;--muted:#7f93b8;--accent:#00f0ff;--accent2:#ff2bd6;--line:#16305a;--good:#39ff88;--on:#041018;--font:"Orbitron","Rajdhani",ui-monospace,Consolas,monospace;--glow:0 0 14px #00f0ff33;--rad:4px}
+:root[data-theme="halloween"]{--bg:#120a1a;--card:#1e1230;--text:#fff2e0;--muted:#c9a98a;--accent:#ff7a00;--accent2:#8a2be2;--line:#3d2457;--good:#9aff4a;--on:#120a1a;--bodybg:radial-gradient(circle at 50% -10%,#4b1a6b,transparent 55%),#120a1a;--font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--glow:none;--rad:14px;color-scheme:dark;--fh:"Creepster",cursive}
+:root[data-theme="noel"]{--bg:#0b3d2a;--card:#134d36;--text:#ffffff;--muted:#cde8d8;--accent:#ff4d4d;--accent2:#ffd966;--line:#2f7a57;--good:#b6ffb0;--on:#ffffff;--bodybg:linear-gradient(170deg,#0b3d2a,#115c3e 60%,#7a1020 135%);--font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--glow:none;--rad:14px;color-scheme:dark;--fh:"Mountains of Christmas",cursive}
+:root[data-theme="nouvelan"]{--bg:#0a0a1f;--card:#14143a;--text:#ffffff;--muted:#b6b6e6;--accent:#ffd700;--accent2:#ff4fd8;--line:#3a3a8a;--good:#7dffb0;--on:#0a0a1f;--bodybg:radial-gradient(circle at 20% 10%,#3a1a6b,transparent 40%),radial-gradient(circle at 80% 30%,#6b1a4f,transparent 40%),#0a0a1f;--font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--glow:none;--rad:14px;color-scheme:dark}
+:root[data-theme="valentin"]{--bg:#3a0b24;--card:#571034;--text:#fff0f6;--muted:#ffb8d6;--accent:#ff4d8d;--accent2:#ffb3d1;--line:#8c2a5e;--good:#7dffb0;--on:#3a0b24;--bodybg:linear-gradient(160deg,#3a0b24,#7a1550);--font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--glow:none;--rad:14px;color-scheme:dark}
+:root[data-theme="paques"]{--bg:#fff7e6;--card:#ffffff;--text:#3b2f4a;--muted:#7d6f94;--accent:#b36bff;--accent2:#ffb703;--line:#eadcff;--good:#2e9e5b;--on:#ffffff;--bodybg:linear-gradient(160deg,#fff7e6,#e8f9d8 55%,#e9dcff);--font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--glow:none;--rad:14px;color-scheme:light}
+:root[data-theme="printemps"]{--bg:#f0fbe9;--card:#ffffff;--text:#20402a;--muted:#5f8a6a;--accent:#ff6fa5;--accent2:#6bd36b;--line:#d4efc8;--good:#2e9e5b;--on:#ffffff;--bodybg:linear-gradient(160deg,#f0fbe9,#ffe9f2);--font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--glow:none;--rad:14px;color-scheme:light}
+:root[data-theme="ete"]{--bg:#fff6d6;--card:#ffffff;--text:#4a2f00;--muted:#8a6a2a;--accent:#ff8a00;--accent2:#00b4d8;--line:#ffe19a;--good:#1c9a4a;--on:#ffffff;--bodybg:linear-gradient(180deg,#7fdcff 0%,#fff6d6 55%,#ffd27a 100%);--font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--glow:none;--rad:14px;color-scheme:light}
+:root[data-theme="automne"]{--bg:#2a1608;--card:#3a200d;--text:#fff1e2;--muted:#d9b896;--accent:#ff8c1a;--accent2:#c0392b;--line:#6b3d1a;--good:#b6e05a;--on:#2a1608;--bodybg:linear-gradient(170deg,#2a1608,#5a2a0e 70%,#7a3a10);--font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--glow:none;--rad:14px;color-scheme:dark}
+:root[data-theme="hiver"]{--bg:#0d2238;--card:#143152;--text:#eaf6ff;--muted:#9cc4e4;--accent:#7fd8ff;--accent2:#ffffff;--line:#2a5a86;--good:#8affc7;--on:#0d2238;--bodybg:linear-gradient(170deg,#0d2238,#1d4a74 70%,#cfe9ff 160%);--font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--glow:none;--rad:14px;color-scheme:dark}
+:root[data-theme="halloween"] body,:root[data-theme="noel"] body,:root[data-theme="nouvelan"] body,:root[data-theme="valentin"] body,:root[data-theme="paques"] body,:root[data-theme="printemps"] body,:root[data-theme="ete"] body,:root[data-theme="automne"] body,:root[data-theme="hiver"] body{background:var(--bodybg) fixed}
+h1,h2,.big{font-family:var(--fh,var(--font))}
+.fx{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}.fx span{position:absolute;top:-10%;opacity:.75;animation:fall linear infinite}@keyframes fall{to{transform:translateY(115vh) rotate(360deg)}}@media (prefers-reduced-motion:reduce){.fx{display:none}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);background-attachment:fixed;min-height:100vh;padding:16px;max-width:760px;margin-inline:auto}
+h1{font-size:1.5rem;margin:4px 0 12px;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav{display:flex;gap:6px;margin-bottom:12px}
+.nav button,.tabs button{flex:1;padding:10px 0;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:.9rem}
+.nav button.on,.tabs button.on{background:var(--accent);border-color:var(--accent);color:var(--on)}
+.search{display:flex;gap:8px;margin-bottom:12px}
+.search input{flex:1;min-width:0;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:1rem}
+.search select{padding:12px 6px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text)}
+.go{padding:12px 16px;border:0;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:var(--on);font-weight:700}
+.banner{background:var(--card);border:1px dashed var(--accent);border-radius:10px;padding:8px 12px;font-size:.8rem;color:var(--muted);margin-bottom:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.head h2{margin:0;font-size:1.25rem}
+.lvl{background:linear-gradient(90deg,var(--accent),var(--accent2));color:var(--on);border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:700;white-space:nowrap}
+.tabs{display:flex;gap:6px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 6px;text-align:center}
+.stat b{display:block;font-size:1.2rem}
+.stat span{font-size:.7rem;color:var(--muted)}
+.bar{margin:8px 0}
+.bar div{height:10px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.bar small{display:flex;justify-content:space-between;color:var(--muted);font-size:.75rem;margin-bottom:3px}
+.shop{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.item{border-radius:12px;padding:10px;color:#fff;min-height:110px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9}
+.item span,.item b{position:relative;text-shadow:0 1px 4px #000a}
+.item span{font-size:.72rem;opacity:.9}
+.err{color:#dc2626;text-align:center;padding:12px}
+.hide{display:none}
+.big{font-size:4.5rem;font-weight:800;text-align:center;line-height:1;margin:8px 0;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.plus{width:100%;padding:26px 0;border:0;border-radius:18px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:var(--on);font-size:1.5rem;font-weight:800;margin:8px 0;touch-action:manipulation}
+.plus:active{transform:scale(.97)}
+.two{display:flex;gap:8px;margin-top:8px}
+.two button{flex:1;padding:12px 0;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text)}
+.note{font-size:.78rem;color:var(--muted);text-align:center;margin-top:10px}
+.hist{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid var(--line);font-size:.9rem}
+button,input,select{font-family:inherit}
+:root[data-theme="fortnite"] body,:root:not([data-theme]) body{background:linear-gradient(165deg,#2b1a86 0%,#3a7bff 62%,#59d3ff 100%) fixed}
+:root[data-theme="futur"] body{background:radial-gradient(circle at 15% 0%,#1b0a3a 0,transparent 45%),radial-gradient(circle at 90% 100%,#06253a 0,transparent 45%),linear-gradient(#0000 95%,#00f0ff12 0) 0 0/100% 32px,linear-gradient(90deg,#0000 95%,#00f0ff12 0) 0 0/32px 100%,#05060f fixed}
+.card,.stat,.nav button,.tabs button,.search input,.search select,.go,.plus,.two button,.item,.banner{border-radius:var(--rad)!important;box-shadow:var(--glow)}
+:root[data-theme="fortnite"] .card,:root[data-theme="fortnite"] .stat,:root:not([data-theme]) .card{border:2px solid var(--line);border-bottom:5px solid #ffe14d55}
+h1,h2,.stat b,.big,.go,.plus,.lvl{letter-spacing:.04em}
+:root[data-theme="fortnite"] h1,:root[data-theme="fortnite"] h2,:root[data-theme="fortnite"] .go,:root[data-theme="fortnite"] .plus{text-transform:uppercase;font-style:italic}
+:root[data-theme="fortnite"] h1{font-size:1.9rem;text-shadow:3px 3px 0 #1b1050;-webkit-text-fill-color:var(--accent);background:none}
+:root[data-theme="futur"] h1{text-transform:uppercase;text-shadow:0 0 18px #00f0ff88}
+:root[data-theme="futur"] .stat b,:root[data-theme="futur"] .big{text-shadow:0 0 12px #00f0ff77}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.top h1{margin:4px 0}
+.themebtn{flex-shrink:0}
+.themebtn select{border:1px solid var(--line);background:var(--card);color:var(--text);padding:9px 8px;border-radius:20px;font-size:.8rem;max-width:150px}
+</style>
+</head>
+<body>
+<div class="top"><h1>Fortnite Tracker</h1><div class="themebtn"><select id="themeSel" aria-label="Thème"><option value="auto">📅 Auto (date)</option><option value="fortnite">🎮 Fortnite</option><option value="futur">🚀 Futur</option><option value="halloween">🎃 Halloween</option><option value="noel">🎄 Noël</option><option value="nouvelan">🎆 Nouvel An</option><option value="valentin">💖 Saint-Valentin</option><option value="paques">🥚 Pâques</option><option value="printemps">🌸 Printemps</option><option value="ete">☀️ Été</option><option value="automne">🍂 Automne</option><option value="hiver">❄️ Hiver</option></select></div><div class="fx" id="fx"></div></div>
+<div class="nav"><button id="nStats" class="on">Stats joueur</button><button id="nShop">Boutique</button><button id="nChest">Coffres</button></div>
+<div id="banner" class="banner hide">Mode démo : données d’exemple. Lance le serveur (voir README) pour les vraies stats.</div>
+
+<section id="vStats">
+<div class="search">
+<input id="name" placeholder="Pseudo Epic Games" autocapitalize="off" autocomplete="off">
+<select id="plat"><option value="epic">Epic</option><option value="psn">PSN</option><option value="xbl">Xbox</option></select>
+<button class="go" id="go">Chercher</button>
+</div>
+<div id="out"></div>
+</section>
+<section id="vShop" class="hide"><div id="shop"></div></section>
+<section id="vChest" class="hide">
+<div class="card"><div style="text-align:center;color:var(--muted);font-size:.85rem">Coffres ouverts cette partie</div>
+<div class="big" id="cCur">0</div>
+<button class="plus" id="cAdd">+1 coffre ouvert</button>
+<div class="two"><button id="cUndo">−1</button><button id="cEnd">Terminer la partie</button></div>
+<div class="note">Fortnite ne donne pas ce chiffre automatiquement : appuie à chaque coffre ouvert, le compteur se met à jour tout de suite.</div></div>
+<div class="grid"><div class="stat"><b id="cTot">0</b><span>Total coffres</span></div><div class="stat"><b id="cGames">0</b><span>Parties finies</span></div><div class="stat"><b id="cAvg">–</b><span>Moyenne / partie</span></div></div>
+<div class="card" style="margin-top:12px"><b>Dernières parties</b><div id="cHist"></div></div>
+<button class="two" style="display:block;margin:0 auto;background:none;border:0;color:var(--muted);font-size:.8rem" id="cReset">Tout effacer</button>
+</section>
+
+<script>
+var $=function(i){return document.getElementById(i)};
+var DEMO={account:{name:"Ninja_Demo"},level:182,modes:{
+all:{wins:412,kills:9640,kd:3.21,winRate:11.8,matches:3490,minutesPlayed:61200,top10:1320,score:5400000},
+solo:{wins:120,kills:3100,kd:2.9,winRate:9.4,matches:1276,minutesPlayed:19800,top10:480,score:1800000},
+duo:{wins:140,kills:2900,kd:3.4,winRate:12.1,matches:1157,minutesPlayed:20400,top10:420,score:1700000},
+squad:{wins:152,kills:3640,kd:3.5,winRate:13.2,matches:1057,minutesPlayed:21000,top10:420,score:1900000}}};
+var DEMOSHOP=[["Skin Aurore","1 500","legendary"],["Pioche Néon","800","epic"],["Planeur Orbite","1 200","rare"],["Danse Éclair","500","uncommon"],["Sac Galaxie","800","epic"],["Skin Rôdeur","1 500","legendary"]];
+var COL={legendary:"#d97706",epic:"#7c3aed",rare:"#2563eb",uncommon:"#16a34a",common:"#64748b"};
+var demo=false,cur=null,mode="all";
+
+function getJson(u){
+  return fetch(u).then(function(r){
+    var ct=r.headers.get("content-type")||"";
+    if(ct.indexOf("json")<0)throw new Error("nojson");
+    return r.json().then(function(j){return{status:r.status,data:j}});
+  });
+}
+function fmt(n){return typeof n==="number"?n.toLocaleString("fr-FR"):"–"}
+function hours(m){return typeof m==="number"?Math.round(m/60).toLocaleString("fr-FR")+" h":"–"}
+
+function showStats(){
+  if(!cur)return;
+  var s=cur.modes[mode]||{};
+  var items=[[fmt(s.wins),"Victoires"],[fmt(s.kills),"Éliminations"],[s.kd!=null?Number(s.kd).toFixed(2):"–","K/D"],[s.winRate!=null?Number(s.winRate).toFixed(1)+"%":"–","Taux de victoire"],[fmt(s.matches),"Parties"],[hours(s.minutesPlayed),"Temps de jeu"],[fmt(s.top10),"Top 10"],[fmt(s.score),"Score"],[s.matches?(s.kills/s.matches).toFixed(2):"–","Élims / partie"]];
+  var h='<div class="card"><div class="head"><h2></h2><span class="lvl">Niv. '+(cur.level!=null?cur.level:"–")+'</span></div>';
+  h+='<div class="tabs">'+["all","solo","duo","squad"].map(function(m){return'<button data-m="'+m+'" class="'+(m===mode?"on":"")+'">'+({all:"Global",solo:"Solo",duo:"Duo",squad:"Squad"})[m]+'</button>'}).join("")+'</div>';
+  h+='<div class="grid">'+items.map(function(i){return'<div class="stat"><b>'+i[0]+'</b><span>'+i[1]+'</span></div>'}).join("")+'</div></div>';
+  h+='<div class="card"><b>Taux de victoire par mode</b>'+["solo","duo","squad"].map(function(m){var w=(cur.modes[m]||{}).winRate||0;return'<div class="bar"><small><span>'+({solo:"Solo",duo:"Duo",squad:"Squad"})[m]+'</span><span>'+Number(w).toFixed(1)+'%</span></small><div><i style="width:'+Math.min(100,w*4)+'%"></i></div></div>'}).join("")+'</div>';
+  $("out").innerHTML=h;
+  $("out").querySelector("h2").textContent=cur.account.name;
+  Array.prototype.forEach.call($("out").querySelectorAll(".tabs button"),function(b){b.onclick=function(){mode=b.getAttribute("data-m");showStats()}});
+}
+
+function search(){
+  var n=$("name").value.trim();
+  if(!n)return;
+  $("out").innerHTML='<div class="card">Chargement…</div>';
+  getJson("/api/stats?name="+encodeURIComponent(n)+"&platform="+$("plat").value).then(function(r){
+    if(r.status===200){demo=false;$("banner").className="banner hide";cur=r.data;mode="all";showStats()}
+    else $("out").innerHTML='<div class="err">'+(r.data&&r.data.error?r.data.error:"Joueur introuvable ou profil privé.")+'</div>';
+  }).catch(function(){
+    demo=true;$("banner").className="banner";cur={account:{name:n},level:DEMO.level,modes:DEMO.modes};mode="all";showStats();
+  });
+}
+
+function loadShop(){
+  $("shop").innerHTML='<div class="card">Chargement…</div>';
+  var draw=function(list){
+    $("shop").innerHTML='<div class="shop">'+list.map(function(x){
+      var c=COL[x.rarity]||COL.common;
+      return'<div class="item" style="background:linear-gradient(160deg,'+c+',#1b1633)">'+(x.image?'<img src="'+x.image+'" alt="" onerror="this.remove()">':"")+'<b class="n"></b><span>'+x.price+' V-Bucks</span></div>'}).join("")+'</div>';
+    Array.prototype.forEach.call($("shop").querySelectorAll(".n"),function(e,i){e.textContent=list[i].name});
+  };
+  getJson("/api/shop").then(function(r){
+    if(r.status!==200||!r.data.items)throw new Error("x");
+    $("banner").className="banner hide";draw(r.data.items);
+  }).catch(function(){
+    $("banner").className="banner";
+    draw(DEMOSHOP.map(function(d){return{name:d[0],price:d[1],rarity:d[2]}}));
+  });
+}
+
+$("go").onclick=search;
+$("name").onkeydown=function(e){if(e.key==="Enter")search()};
+function tab(t){["Stats","Shop","Chest"].forEach(function(x){$("n"+x).className=x===t?"on":"";$("v"+x).className=x===t?"":"hide"});if(t==="Shop")loadShop()}
+$("nStats").onclick=function(){tab("Stats")};
+$("nShop").onclick=function(){tab("Shop")};
+$("nChest").onclick=function(){tab("Chest");chestRender()};
+
+var EMO={halloween:["🎃","🦇","👻"],noel:["❄️","🎄","⭐"],nouvelan:["🎆","🎉","✨"],valentin:["💖","💘","🌹"],paques:["🥚","🐰","🌷"],printemps:["🌸","🌱","🦋"],ete:["☀️","🌴","🌊"],automne:["🍂","🍁","🍄"],hiver:["❄️","⛄","❄️"]};
+function easter(y){var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return new Date(y,mo-1,da)}
+function autoTheme(){
+  var d=new Date(),m=d.getMonth()+1,md=m*100+d.getDate();
+  if(md>=1015&&md<=1102)return"halloween";
+  if(md>=1201&&md<=1226)return"noel";
+  if(md>=1227||md<=105)return"nouvelan";
+  if(md>=207&&md<=215)return"valentin";
+  if(Math.abs(d-easter(d.getFullYear()))<=7*864e5)return"paques";
+  if(m>=3&&m<=5)return"printemps";
+  if(m>=6&&m<=8)return"ete";
+  if(m>=9&&m<=11)return"automne";
+  return"hiver";
+}
+function particles(t){
+  var f=$("fx");f.innerHTML="";var e=EMO[t];if(!e)return;
+  for(var i=0;i<14;i++){var sp=document.createElement("span");sp.textContent=e[i%e.length];sp.style.left=(Math.random()*96)+"%";sp.style.fontSize=(14+Math.random()*14)+"px";sp.style.animationDuration=(9+Math.random()*9)+"s";sp.style.animationDelay="-"+(Math.random()*14)+"s";f.appendChild(sp)}
+}
+function setTheme(choice){
+  var t=choice==="auto"?autoTheme():choice;
+  document.documentElement.setAttribute("data-theme",t);
+  $("themeSel").value=choice;particles(t);
+  try{localStorage.setItem("fn-theme",choice)}catch(e){}
+}
+$("themeSel").onchange=function(){setTheme($("themeSel").value)};
+var th="auto";try{th=localStorage.getItem("fn-theme")||"auto"}catch(e){}
+if(!$("themeSel").querySelector('option[value="'+th+'"]'))th="auto";
+setTheme(th);
+var CK="fn-chests-v1",CH={cur:0,hist:[]};
+try{var raw=JSON.parse(localStorage.getItem(CK)||"null");if(raw&&typeof raw.cur==="number"&&Array.isArray(raw.hist))CH=raw}catch(e){}
+function chestSave(){try{localStorage.setItem(CK,JSON.stringify(CH))}catch(e){}}
+function chestRender(){
+  var sum=CH.hist.reduce(function(a,b){return a+b},0),n=CH.hist.length;
+  $("cCur").textContent=CH.cur;
+  $("cTot").textContent=sum+CH.cur;
+  $("cGames").textContent=n;
+  $("cAvg").textContent=n?(sum/n).toFixed(1):"–";
+  $("cHist").innerHTML=n?CH.hist.slice(-5).reverse().map(function(c,i){return'<div class="hist"><span>Partie '+(n-i)+'</span><b>'+c+' coffre'+(c>1?"s":"")+'</b></div>'}).join(""):'<div class="note">Aucune partie terminée.</div>';
+}
+$("cAdd").onclick=function(){CH.cur++;try{navigator.vibrate&&navigator.vibrate(15)}catch(e){}chestSave();chestRender()};
+$("cUndo").onclick=function(){if(CH.cur>0){CH.cur--;chestSave();chestRender()}};
+$("cEnd").onclick=function(){if(CH.cur>0){CH.hist.push(CH.cur);CH.cur=0;chestSave();chestRender()}};
+$("cReset").onclick=function(){if(confirm("Effacer tous les compteurs de coffres ?")){CH={cur:0,hist:[]};chestSave();chestRender()}};
+chestRender();
+</script>
+</body>
+</html>
