@@ -219,16 +219,10 @@ function closeNav(){$("nav").classList.remove("open");$("scrim").classList.remov
 function updDot(){}
 $("burger").onclick=function(){dismiss("menu");var o=$("nav").classList.toggle("open");$("scrim").classList.toggle("on",o)};
 $("scrim").onclick=closeNav;
-// ====== NOUVEAUTÉS : à chaque MAJ, ajoute une entrée ici + data-new="id" sur l'élément concerné ======
+// ====== NOUVEAUTÉS : à chaque MAJ, remplace la liste par la seule nouvelle version + data-new="id" sur l'élément concerné ======
 var UPDATES=[
 {v:"1.6",date:"2026-11-09",items:[
- {id:"menu",t:"Menu tiroir ☰ en haut à gauche : toutes les catégories rangées dedans"}]},
-{v:"1.4",date:"2026-11-09",items:[
- {id:"cmp",t:"Comparateur de deux joueurs"},
- {id:"news",t:"Page Nouveautés avec l’étiquette NEW"}]},
-{v:"1.3",date:"2026-11-08",items:[{t:"Thèmes Halloween, Noël, Nouvel An, Saint-Valentin, Pâques et saisons (mode Auto)"}]},
-{v:"1.2",date:"2026-11-07",items:[{t:"Thèmes Fortnite et Futur"},{t:"Onglet Coffres (compteur manuel)"}]},
-{v:"1.0",date:"2026-11-05",items:[{t:"Stats joueur en direct et boutique"}]}];
+ {id:"menu",t:"Menu tiroir ☰ en haut à gauche : toutes les catégories rangées dedans"}]}];
 var FEAT={};UPDATES.forEach(function(u){u.items.forEach(function(i){if(i.id)FEAT[i.id]=u.date})});
 function seenList(){try{return JSON.parse(localStorage.getItem("fn-new-seen")||"[]")||[]}catch(e){return[]}}
 function isNew(id){return FEAT[id]&&seenList().indexOf(id)<0&&(Date.now()-new Date(FEAT[id]).getTime())<14*864e5}
@@ -238,12 +232,11 @@ function markNew(){Array.prototype.forEach.call(document.querySelectorAll("[data
   var id=el.getAttribute("data-new");
   if(isNew(id)&&!el.querySelector('.new[data-id="'+id+'"]')){var b=document.createElement("span");b.className="new";b.textContent="NEW";b.setAttribute("data-id",id);b.onclick=function(e){e.stopPropagation();dismiss(id)};el.appendChild(b)}})}
 function renderNews(){
-  var h='<div class="card"><button class="go" id="newsRead" style="width:100%">Tout marquer comme vu</button></div>';
+  var h="";
   UPDATES.forEach(function(u){
     h+='<div class="card"><h3>Version '+u.v+' · '+new Date(u.date).toLocaleDateString("fr-FR",{day:"numeric",month:"long"})+'</h3><ul>'+u.items.map(function(i){return'<li>'+i.t+(i.id&&isNew(i.id)?'<span class="new">NEW</span>':"")+'</li>'}).join("")+'</ul></div>';
   });
   $("news").innerHTML=h;
-  $("newsRead").onclick=function(){Object.keys(FEAT).forEach(dismiss);renderNews()};
 }
 function cmpShow(a,b,isDemo){
   var A=a.modes.all||{},B=b.modes.all||{},ra=0,rb=0;
