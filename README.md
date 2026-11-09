@@ -10,3 +10,4 @@ Pour le mettre en ligne : héberge le dossier sur Render, Railway ou un VPS,
 avec la variable d’environnement FORTNITE_API_KEY.
 Les stats ne marchent que pour les profils publics (réglage Fortnite : « Afficher les stats de jeu »).
 Si la boutique est vide, vérifie la doc de l’API : l’adresse /v2/shop peut avoir changé.
+
